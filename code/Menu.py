@@ -10,18 +10,18 @@ from code.Const import WIN_WIDTH, COLOR_WHITE, MENU_OPTION, COLOR_BLACK
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/menuBg.png')
+        self.surf = pygame.image.load('./asset/MenuBg.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
-        menu_option=0
+        menu_option = 0
         pygame.mixer_music.load('./asset/Menu.mp3')
         pygame.mixer_music.play(-1)
         while True:
-            #DRAW IMAGES
+            # DRAW IMAGES
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, "Forest", COLOR_WHITE, ((WIN_WIDTH / 2), 50))
-            self.menu_text(50, "SHOOTER", COLOR_WHITE, ((WIN_WIDTH / 2), 90))
+            self.menu_text(50, "Space", COLOR_WHITE, ((WIN_WIDTH / 2), 50))
+            self.menu_text(50, "Energy", COLOR_WHITE, ((WIN_WIDTH / 2), 90))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
@@ -39,15 +39,14 @@ class Menu:
                 if event.type ==pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN: #DOWN KEY
                         if menu_option <len(MENU_OPTION) - 1:
-                            menu_option +=1
-                        else: menu_option = 0
-
+                            menu_option += 1
+                        else:
+                            menu_option = 0
                     if event.key == pygame.K_UP: #UP KEY
                         if menu_option > 0:
                             menu_option -= 1
                         else:
                             menu_option = len(MENU_OPTION) - 1
-
                     if event.key == pygame.K_RETURN: #ENTER
                         return MENU_OPTION[menu_option]
 
