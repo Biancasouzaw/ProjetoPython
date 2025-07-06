@@ -4,7 +4,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, COLOR_WHITE, MENU_OPTION, COLOR_BLACK
+from code.Const import WIN_WIDTH, MENU_OPTION, COLOR_BLACK, COLOR_BLUE
 
 
 class Menu:
@@ -20,14 +20,14 @@ class Menu:
         while True:
             # DRAW IMAGES
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, "Space", COLOR_WHITE, ((WIN_WIDTH / 2), 50))
-            self.menu_text(50, "Energy", COLOR_WHITE, ((WIN_WIDTH / 2), 90))
+            self.menu_text(50, "Space", COLOR_BLACK, ((WIN_WIDTH / 2), 50))
+            self.menu_text(50, "Energy", COLOR_BLACK, ((WIN_WIDTH / 2), 90))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 220 + 20 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_BLUE, ((WIN_WIDTH / 2), 150 + 25 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_BLACK, ((WIN_WIDTH / 2), 220 + 20 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_BLUE, ((WIN_WIDTH / 2), 150 + 25 * i))
 
             pygame.display.flip()
 
@@ -38,7 +38,7 @@ class Menu:
                     quit()  # end pygame
                 if event.type ==pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN: #DOWN KEY
-                        if menu_option <len(MENU_OPTION) - 1:
+                        if menu_option < len(MENU_OPTION) - 1:
                             menu_option += 1
                         else:
                             menu_option = 0
@@ -47,7 +47,7 @@ class Menu:
                             menu_option -= 1
                         else:
                             menu_option = len(MENU_OPTION) - 1
-                    if event.key == pygame.K_RETURN: #ENTER
+                    if event.key == pygame.K_RETURN: # ENTER
                         return MENU_OPTION[menu_option]
 
 
