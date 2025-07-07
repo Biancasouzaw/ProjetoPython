@@ -37,7 +37,7 @@ class EntityMediator:
                 ent2.last_dmg = ent1.name
 
     @staticmethod
-    def __give_score(energy: Energy, entity_list:[Entity]):
+    def __give_score(energy: Energy, entity_list: list[Entity]):
         if energy.last_dmg == 'Player1':
             for ent in entity_list:
                 if ent.name == 'Player1':
