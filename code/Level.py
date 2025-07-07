@@ -66,7 +66,6 @@ class Level:
                 for ent in self.entity_list:
                     if isinstance(ent, Player):
                         found_player = True
-
                 if not found_player:
                     return False
 
