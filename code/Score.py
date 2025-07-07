@@ -2,7 +2,7 @@ import sys
 from datetime import datetime
 
 import pygame
-from pygame import Surface, Rect, KEYDOWN, K_RETURN, K_BACKSPACE
+from pygame import Surface, Rect, KEYDOWN, K_RETURN, K_BACKSPACE, K_ESCAPE
 from pygame.font import Font
 
 from code.Const import C_WHITE, MENU_OPTION, SCORE_POS
@@ -24,11 +24,11 @@ class Score:
         name = ''
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.score_text(48, 'YOU WIND!', C_WHITE, SCORE_POS['Title'])
+            self.score_text(48, 'YOU WIN!', C_WHITE, SCORE_POS['Title'])
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]
                 text = 'Enter Player 1 name (4 characters):'
-            if game_mode == MENU_OPTION[0]:
+            if game_mode == MENU_OPTION[1]:
                 score = (player_score[0] + player_score[1]) / 2
                 text = 'Enter Team name (4 characters):'
             if game_mode == MENU_OPTION[2]:
