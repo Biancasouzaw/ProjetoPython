@@ -8,13 +8,11 @@ from pygame.font import Font
 from code.Const import C_WHITE, MENU_OPTION, SCORE_POS
 from code.DBProxy import DBProxy
 
-
 class Score:
     def __init__(self, window: Surface):
         self.window = window
         self.surf = pygame.image.load('./asset/ScoreBg.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
-
         pass
 
     def save(self, game_mode: str, player_score: list[int]):
@@ -25,16 +23,16 @@ class Score:
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
             self.score_text(48, 'YOU WIN!', C_WHITE, SCORE_POS['Title'])
+            text = 'Enter Plyer 1 name (4 characters):'
+            score = player_score[0]
             if game_mode == MENU_OPTION[0]:
                 score = player_score[0]
-                text = 'Enter Player 1 name (4 characters):'
             if game_mode == MENU_OPTION[1]:
                 score = (player_score[0] + player_score[1]) / 2
                 text = 'Enter Team name (4 characters):'
             if game_mode == MENU_OPTION[2]:
                 if player_score[0] >= player_score[1]:
                     score = player_score[0]
-                    text = 'Enter Player 1 name (4 characters):'
                 else:
                     score = player_score[1]
                     text = 'Enter Player 2 name (4 characters):'

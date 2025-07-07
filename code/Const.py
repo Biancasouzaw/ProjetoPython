@@ -42,10 +42,10 @@ ENTITY_DAMAGE = {
     'Level2Bg0': 0,
     'Level2Bg1': 0,
     'Player1': 1,
-    'Player2':1,
-    'Enemy1':60,
-    'Enemy2':60,
-    'Energy':0,
+    'Player2': 1,
+    'Enemy1': 60,
+    'Enemy2': 60,
+    'Energy': 0,
 }
 
 ENTITY_SCORE = {

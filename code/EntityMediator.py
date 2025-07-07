@@ -3,7 +3,6 @@ from code.Energy import Energy
 from code.Entity import Entity
 from code.Player import Player
 
-
 class EntityMediator:
 
     @staticmethod
@@ -23,8 +22,6 @@ class EntityMediator:
             valid_interaction = True
         if isinstance(ent2, Energy) and isinstance(ent1, Player):
             valid_interaction = True
-
-
 
         if valid_interaction:
             if (ent1.rect.right >= ent2.rect.left and
@@ -46,8 +43,6 @@ class EntityMediator:
             for ent in entity_list:
                 if ent.name == 'Player2':
                     ent.score += energy.score
-
-
 
     @staticmethod
     def verify_collision(entity_list: list[Entity]):

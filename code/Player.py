@@ -6,7 +6,6 @@ from code.Const import PLAYER_KEY_UP, ENTITY_SPEED, PLAYER_KEY_DOWN, PLAYER_KEY_
     WIN_HEIGHT
 from code.Entity import Entity
 
-
 class Player(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name,position)
